@@ -76,9 +76,10 @@ cd ../../custom_nodes/ComfyUI_RH_Ovi
 
 ```
 [RunningHub Ovi Model Loader] → [RunningHub Ovi Text to Video] → [Save/Preview Video]
-<img width="1159" height="583" alt="image" src="https://github.com/user-attachments/assets/1cc83355-6253-413e-84e4-ba7582dccdf6" />
 
 ```
+<img width="1159" height="583" alt="image" src="https://github.com/user-attachments/assets/1cc83355-6253-413e-84e4-ba7582dccdf6" />
+
 
 ### Prompt Format
 
