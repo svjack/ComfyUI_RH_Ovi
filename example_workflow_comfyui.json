@@ -1,0 +1,167 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "OviModelLoader",
+      "pos": [50, 50],
+      "size": [315, 106],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "ovi_engine",
+          "type": "OVI_ENGINE",
+          "links": [1, 2],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OviModelLoader"
+      },
+      "widgets_values": [
+        "./ckpts",
+        true,
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "type": "OviTextToVideo",
+      "pos": [450, 50],
+      "size": [400, 500],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ovi_engine",
+          "type": "OVI_ENGINE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_path",
+          "type": "STRING",
+          "links": [],
+          "shape": 3
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OviTextToVideo"
+      },
+      "widgets_values": [
+        "<S>Hello world!<E> <AUDCAP>Background music playing<ENDAUDCAP>",
+        512,
+        992,
+        100,
+        50,
+        "unipc",
+        5.0,
+        4.0,
+        3.0,
+        11,
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [50, 250],
+      "size": [315, 314],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [3],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "OviImageToVideo",
+      "pos": [450, 600],
+      "size": [400, 450],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ovi_engine",
+          "type": "OVI_ENGINE",
+          "link": 2
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_path",
+          "type": "STRING",
+          "links": [],
+          "shape": 3
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OviImageToVideo"
+      },
+      "widgets_values": [
+        "<S>Amazing scene!<E> <AUDCAP>Ambient sounds<ENDAUDCAP>",
+        100,
+        50,
+        "unipc",
+        5.0,
+        4.0,
+        3.0,
+        11,
+        "",
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "OVI_ENGINE"],
+    [2, 1, 0, 4, 0, "OVI_ENGINE"],
+    [3, 3, 0, 4, 1, "IMAGE"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
