@@ -77,6 +77,8 @@ cd ../../custom_nodes/ComfyUI_RH_Ovi
 ```
 [RunningHub Ovi Model Loader] → [RunningHub Ovi Text to Video] → [保存/预览视频]
 ```
+<img width="1159" height="583" alt="image" src="https://github.com/user-attachments/assets/13461d44-945c-49c4-9b36-722192974092" />
+
 
 ### 提示词格式
 
@@ -155,3 +157,4 @@ Ovi 使用特殊标签来控制语音和音频：
       url={https://arxiv.org/abs/2510.01284}, 
 }
 ```
+
