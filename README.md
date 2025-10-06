@@ -31,9 +31,6 @@ git clone https://github.com/HM-RunningHub/ComfyUI_RH_Ovi.git
 
 cd ComfyUI_RH_Ovi
 
-# Install PyTorch (if not already installed)
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1
-
 # Install dependencies
 pip install -r requirements.txt
 
