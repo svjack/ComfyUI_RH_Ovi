@@ -1,10 +1,19 @@
+import os
 import tempfile
-from typing import Optional
+
+
+custom_temp = os.path.join(os.getcwd(), "temp")
+os.makedirs(custom_temp, exist_ok=True)
+tempfile.tempdir = custom_temp
+# ==============================================================================
 
 import numpy as np
 from moviepy.editor import ImageSequenceClip, AudioFileClip
 from scipy.io import wavfile
+from typing import Optional
+import logging
 
+logger = logging.getLogger(__name__)
 
 def save_video(
     output_path: str,
@@ -55,12 +64,15 @@ def save_video(
 
     # Add audio if provided
     if audio_numpy is not None:
-        with tempfile.NamedTemporaryFile(suffix=".wav") as temp_audio_file:
+        
+        with tempfile.NamedTemporaryFile(suffix=".wav", mode='wb', delete=False) as temp_audio_file:
             wavfile.write(
                 temp_audio_file.name,
                 sample_rate,
                 (audio_numpy * 32767).astype(np.int16),
             )
+            
+            logger.info(f"Audio written to: {temp_audio_file.name}, size: {os.path.getsize(temp_audio_file.name)} bytes")
             audio_clip = AudioFileClip(temp_audio_file.name)
             final_clip = clip.set_audio(audio_clip)
     else:
