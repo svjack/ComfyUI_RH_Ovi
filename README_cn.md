@@ -31,9 +31,6 @@ git clone https://github.com/HM-RunningHub/ComfyUI_RH_Ovi.git
 
 cd ComfyUI_RH_Ovi
 
-# 安装 PyTorch（如果尚未安装）
-pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1
-
 # 安装依赖
 pip install -r requirements.txt
 
@@ -157,4 +154,5 @@ Ovi 使用特殊标签来控制语音和音频：
       url={https://arxiv.org/abs/2510.01284}, 
 }
 ```
+
 
