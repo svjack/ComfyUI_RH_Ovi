@@ -1,8 +1,7 @@
 import os
 import tempfile
 
-# ====================== 修复权限问题：设置自定义临时目录 ======================
-# 创建项目目录下的temp文件夹
+
 custom_temp = os.path.join(os.getcwd(), "temp")
 os.makedirs(custom_temp, exist_ok=True)
 tempfile.tempdir = custom_temp
@@ -65,14 +64,14 @@ def save_video(
 
     # Add audio if provided
     if audio_numpy is not None:
-        # 关键修复：使用二进制模式（'wb'）和delete=False
+        
         with tempfile.NamedTemporaryFile(suffix=".wav", mode='wb', delete=False) as temp_audio_file:
             wavfile.write(
                 temp_audio_file.name,
                 sample_rate,
                 (audio_numpy * 32767).astype(np.int16),
             )
-            # 添加调试日志（可选，用于验证）
+            
             logger.info(f"Audio written to: {temp_audio_file.name}, size: {os.path.getsize(temp_audio_file.name)} bytes")
             audio_clip = AudioFileClip(temp_audio_file.name)
             final_clip = clip.set_audio(audio_clip)
