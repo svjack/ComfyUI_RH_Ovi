@@ -38,7 +38,7 @@ pip install -r requirements.txt
 pip install flash_attn --no-build-isolation
 ```
 
-### Step 2: Download Required Models
+### Step 2: Download Required Models (modelscope svjack/Ovi)
 
 ```bash
 # Download models (will download to ComfyUI/models/Ovi by default)
